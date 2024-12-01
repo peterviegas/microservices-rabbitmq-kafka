@@ -186,3 +186,32 @@ User: guest
 Password: guest
 
 ![image](https://github.com/user-attachments/assets/d691aa0a-edea-43be-944c-b94c025b3e08)
+
+## 6 NotificationService
+````
+src/main/java/com/pviegas/notificationservice/
+├── config/
+│   ├── RabbitConfig.java
+│   ├── KafkaConfig.java
+├── consumer/
+│   ├── RabbitConsumer.java
+├── producer/
+│   ├── KafkaProducer.java
+├── model/
+│   ├── Notification.java
+└── Application.java
+````
+### Dependências no pom.xml:
+````
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-amqp</artifactId>
+</dependency>
+<dependency>
+    <groupId>org.springframework.kafka</groupId>
+    <artifactId>spring-kafka</artifactId>
+</dependency>
+
+````
+
+
