@@ -187,7 +187,7 @@ Password: guest
 
 ![image](https://github.com/user-attachments/assets/d691aa0a-edea-43be-944c-b94c025b3e08)
 
-## 6 NotificationService
+## Step 6 NotificationService
 ### Configuration to consume the order queue
 ````
 src/main/java/com/pviegas/notificationservice/
@@ -214,5 +214,40 @@ src/main/java/com/pviegas/notificationservice/
 </dependency>
 
 ````
+## Kafka
+### Dowload CLI do Kafka
+https://kafka.apache.org/downloads
 
+Extract the downloaded .tgz file to a directory such as C:\kafka.
+Add Kafka to your system PATH:
+Right-click "This PC" → "Properties".
+Go to "Advanced system settings" → "Environment variables".
+Under "System variables", find the Path variable and add the full path of the C:\kafka\bin\windows directory.
 
+### Start Kafka on Windows
+cd C:\kafka
+
+### Start Zookeeper (a requirement for Kafka to work):
+.\bin\windows\zookeeper-server-start.bat .\config\zookeeper.properties
+
+### Open another terminal and start the Kafka Server:
+.\bin\windows\kafka-server-start.bat .\config\server.properties
+
+## Test the Kafka CLI
+### Now that Kafka is running:
+.\bin\windows\kafka-topics.bat --create --topic test-topic --bootstrap-server localhost:9092 --partitions 1 --replication-factor 1
+
+### Send messages to the topic:
+.\bin\windows\kafka-console-producer.bat --topic test-topic --bootstrap-server localhost:9092
+
+### Consume messages from the topic:
+.\bin\windows\kafka-console-consumer.bat --topic test-topic --from-beginning --bootstrap-server localhost:9092
+
+## Step 7
+### Test Rabbit and Kafka
+To test, we will use Postman again.
+Navigate to the project folder (notification-service and order-service) and run the following command:
+````
+mvn spring-boot:run
+````
+You can monitor the execution and consumption at http://localhost:15672/#/ or in the logs.
