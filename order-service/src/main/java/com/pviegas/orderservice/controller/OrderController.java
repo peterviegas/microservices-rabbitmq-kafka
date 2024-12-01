@@ -6,7 +6,7 @@ import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-//import com.pviegas.orderservice.model.Order;
+import com.pviegas.orderservice.model.Order;
 import com.pviegas.orderservice.service.OrderService;
 
 @RestController
