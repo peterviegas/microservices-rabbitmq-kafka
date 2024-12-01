@@ -133,9 +133,11 @@ spring:
 
 ````
   {
-  "orderId": 1,
-  "item": "Laptop",
-  "quantity": 2
+    "orderId": "12345",
+    "customerName": "John Doe",
+    "product": "Laptop",
+    "quantity": 1,
+    "status": "Pending"
 }
 ````
 4. Check:
