@@ -143,3 +143,44 @@ spring:
 - The message sent to RabbitMQ.
 - The NotificationService consuming the message and publishing it to Kafka.
 - The ReportService receiving and displaying the final message.
+
+
+  
+## Example creating with Spring Initializr
+![image](https://github.com/user-attachments/assets/ea1338ef-0023-41e2-9dcb-53e93d065710)
+
+Recommended Structure
+````
+src/main/java/com/pviegas/orderservice/
+├── config/
+│   └── RabbitConfig.java
+├── controller/
+│   └── OrderController.java
+├── service/
+│   └── OrderService.java
+├── model/
+│   └── Order.java
+└── Application.java
+````
+
+
+### Aditional checklist
+Check if RabbitMQ is running. If necessary, run RabbitMQ using Docker.
+````docker run -d --hostname my-rabbit --name rabbitmq -p 5672:5672 -p 15672:15672 rabbitmq:3-management````
+
+### Test the Endpoint
+Send a POST request
+````
+{
+  "orderId": 123,
+  "item": "Laptop",
+  "quantity": 2
+}
+````
+Access the RabbitMQ Dashboard
+Open your browser and go to: http://localhost:15672.
+Log in:
+User: guest
+Password: guest
+
+![image](https://github.com/user-attachments/assets/d691aa0a-edea-43be-944c-b94c025b3e08)
