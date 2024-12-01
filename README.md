@@ -188,6 +188,7 @@ Password: guest
 ![image](https://github.com/user-attachments/assets/d691aa0a-edea-43be-944c-b94c025b3e08)
 
 ## 6 NotificationService
+### Configuration to consume the order queue
 ````
 src/main/java/com/pviegas/notificationservice/
 ├── config/
